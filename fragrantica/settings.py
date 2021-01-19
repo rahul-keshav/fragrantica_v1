@@ -53,10 +53,8 @@ CONCURRENT_REQUESTS = 16
 DOWNLOADER_MIDDLEWARES = {
    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware':None,
    'fragrantica.middlewares.UserAgentRotatorMiddleware': 400,
-   # 'scrapy_proxy_pool.middlewares.ProxyPoolMiddleware': 610,
-   # 'scrapy_proxy_pool.middlewares.BanDetectionMiddleware': 620,
-   'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware' :  110 , 
-   'tor_ip_rotator.middlewares.TorProxyMiddleware' :  100 
+   'scrapy_proxy_pool.middlewares.ProxyPoolMiddleware': 610,
+   'scrapy_proxy_pool.middlewares.BanDetectionMiddleware': 620,
 }
 
 # Enable or disable extensions
@@ -95,13 +93,8 @@ AUTOTHROTTLE_ENABLED = True
 FEED_EXPORT_ENCODING='utf-8'
 
 # important setting
-# PROXY_POOL_ENABLED = True
-# PROXY_POOL_FORCE_REFRESH = True
-# PROXY_POOL_REFRESH_INTERVAL = 300
-# PROXY_POOL_PAGE_RETRY_TIMES = 20
-# PROXY_POOL_TRY_WITH_HOST = False
-# 
-# important for Tor
-TOR_IPROTATOR_ENABLED  =  True 
-TOR_IPROTATOR_CHANGE_AFTER  = 3
-TOR_IPROTATOR_ALLOW_REUSE_IP_AFTER  =  10
+PROXY_POOL_ENABLED = True
+PROXY_POOL_FORCE_REFRESH = True
+PROXY_POOL_REFRESH_INTERVAL = 300
+PROXY_POOL_PAGE_RETRY_TIMES = 20
+PROXY_POOL_TRY_WITH_HOST = False

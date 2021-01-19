@@ -37,7 +37,6 @@ class BuildSpider(scrapy.Spider):
         long_description = ' '.join(long_description_)
         rating = response.xpath('//*[@id="main-content"]/div[1]/div[1]/div/div[2]/div[4]/div[3]/div/p/span[1]/text()').get()
         out_of = response.xpath('//*[@id="main-content"]/div[1]/div[1]/div/div[2]/div[4]/div[3]/div/p/span[2]/text()').get()
-        time.sleep(2)
         No_of_vote = response.xpath('//*[@id="main-content"]/div[1]/div[1]/div/div[2]/div[4]/div[3]/div/p/span[3]/text()').get()
         yield{
             'Url':url,
