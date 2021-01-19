@@ -12,11 +12,14 @@ class BuildSpider(scrapy.Spider):
     name = 'build'
     
     def start_requests(self):
-        i = int(input('enter the start index,index start from 1:  '))
-        j = int(input('enter the last index:  '))        
-        urls = ls[i-1:j]
-        for url in urls:
-            yield scrapy.Request(url=url, callback=self.parse)
+        k=0
+        while k<63000:
+            urls = ls[k:k+500]
+            for url in urls:
+                yield scrapy.Request(url=url, callback=self.parse)
+            k=k+1000
+            sleep_time_min = 60*10
+            time.sleep(sleep_time_min)
 
     def parse(self, response):
         url =  response.url
