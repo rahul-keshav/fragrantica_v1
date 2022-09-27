@@ -2,7 +2,7 @@ import scrapy
 import logging
 import pandas as pd
 import time
-df = pd.read_csv("link1.csv")
+df = pd.read_csv("link.csv")
 
 urls = list(df['URL'])
 
