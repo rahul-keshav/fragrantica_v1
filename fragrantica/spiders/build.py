@@ -5,7 +5,7 @@ import time
 df = pd.read_csv("link.csv")
 with open('api','r') as api_file:
     api = api_file.read() 
-    api = api.strip()
+    api = str(api.strip())
 urls = list(df['URL'])
 
 class BuildSpider(scrapy.Spider):
@@ -13,7 +13,7 @@ class BuildSpider(scrapy.Spider):
     
     def start_requests(self):
         for url in urls:
-            url_with_proxy = 'http://api.scraperapi.com/?api_key=api&url=' + url
+            url_with_proxy = 'http://api.scraperapi.com/?api_key='+api+'&url=' + url
             yield scrapy.Request(url=url_with_proxy, callback=self.parse, meta={"original_url":url})
                 
             
